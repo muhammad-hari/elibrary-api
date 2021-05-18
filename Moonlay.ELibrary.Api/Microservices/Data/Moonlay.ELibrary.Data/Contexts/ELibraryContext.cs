@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using Moonlay.ELibrary.Data.Models;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Moonlay.ELibrary.Domain.Models;
 
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Moonlay.ELibrary.Data.Contexts
+namespace Moonlay.ELibrary.Data.Models
 {
     public partial class ELibraryContext : DbContext
     {
@@ -23,18 +23,18 @@ namespace Moonlay.ELibrary.Data.Contexts
         public virtual DbSet<Admin> Admin { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<Invoice> Invoice { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
         public virtual DbSet<Publisher> Publisher { get; set; }
-        public virtual DbSet<Rental> Rental { get; set; }
+        public virtual DbSet<RentDetail> RentDetail { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
 //            if (!optionsBuilder.IsConfigured)
 //            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
 //                optionsBuilder.UseSqlServer("Server=HARI\\SQLEXPRESS;Database=ELibrary;Trusted_Connection=True;");
 //            }
-        }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -91,9 +91,7 @@ namespace Moonlay.ELibrary.Data.Contexts
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
@@ -114,28 +112,28 @@ namespace Moonlay.ELibrary.Data.Contexts
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Invoice>(entity =>
+            modelBuilder.Entity<Payment>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.AdminId).HasColumnName("AdminID");
 
-                entity.Property(e => e.Cost).HasColumnType("decimal(18, 0)");
-
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
-                entity.Property(e => e.DateOfBorrow).HasColumnType("datetime");
+                entity.Property(e => e.Date).HasColumnType("datetime");
+
+                entity.Property(e => e.TotalCost).HasColumnType("decimal(18, 0)");
 
                 entity.HasOne(d => d.Admin)
-                    .WithMany(p => p.Invoice)
+                    .WithMany(p => p.Payment)
                     .HasForeignKey(d => d.AdminId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Invoice_Admin");
 
                 entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Invoice)
+                    .WithMany(p => p.Payment)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Invoice_Customer");
@@ -169,31 +167,36 @@ namespace Moonlay.ELibrary.Data.Contexts
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Rental>(entity =>
+            modelBuilder.Entity<RentDetail>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.BookId).HasColumnName("BookID");
 
+                entity.Property(e => e.Cost).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.CreatedBy)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
+                entity.Property(e => e.DateOfBorrow).HasColumnType("datetime");
+
                 entity.Property(e => e.DateOfReturn).HasColumnType("datetime");
 
-                entity.Property(e => e.InvoiceId).HasColumnName("InvoiceID");
+                entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
 
                 entity.HasOne(d => d.Book)
-                    .WithMany(p => p.Rental)
+                    .WithMany(p => p.RentDetail)
                     .HasForeignKey(d => d.BookId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rental_Book");
 
-                entity.HasOne(d => d.Invoice)
-                    .WithMany(p => p.Rental)
-                    .HasForeignKey(d => d.InvoiceId)
+                entity.HasOne(d => d.Payment)
+                    .WithMany(p => p.RentDetail)
+                    .HasForeignKey(d => d.PaymentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Rental_Invoice");
             });

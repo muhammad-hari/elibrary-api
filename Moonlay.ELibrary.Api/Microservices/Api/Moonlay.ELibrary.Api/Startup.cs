@@ -1,17 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Moonlay.ELibrary.Application.Interfaces;
+using Moonlay.ELibrary.Application.Services;
 using Moonlay.ELibrary.Data.Models;
+using Moonlay.ELibrary.Data.Repository;
+using Moonlay.ELibrary.Domain.Interfaces;
 
 namespace Moonlay.ELibrary.Api
 {
@@ -29,12 +28,15 @@ namespace Moonlay.ELibrary.Api
         {
             services.AddControllers();
 
-            services.Configure<DatabaseConnection>(options =>
+            services.AddTransient<ILibraryRepository, LibraryRepository>();
+            services.AddTransient<IRentBookService, RentBookService>();
+
+            services.AddDbContext<ELibraryContext>(options =>
             {
-                options.Development = Configuration.GetValue<string>("Development");
-                options.Staging = Configuration.GetValue<string>("Staging");
-                options.Production = Configuration.GetValue<string>("Production");
+                options.UseSqlServer(Configuration.GetConnectionString("Development"));
             });
+
+
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>

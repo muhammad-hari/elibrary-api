@@ -5,19 +5,19 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Moonlay.ELibrary.Data.Models
+namespace Moonlay.ELibrary.Domain.Models
 {
     public partial class Admin
     {
         public Admin()
         {
-            Invoice = new HashSet<Invoice>();
+            Payment = new HashSet<Payment>();
         }
 
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public virtual ICollection<Invoice> Invoice { get; set; }
+        public virtual ICollection<Payment> Payment { get; set; }
     }
 }

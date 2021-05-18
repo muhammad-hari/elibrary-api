@@ -5,13 +5,13 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace Moonlay.ELibrary.Data.Models
+namespace Moonlay.ELibrary.Domain.Models
 {
     public partial class Book
     {
         public Book()
         {
-            Rental = new HashSet<Rental>();
+            RentDetail = new HashSet<RentDetail>();
         }
 
         public int Id { get; set; }
@@ -24,6 +24,6 @@ namespace Moonlay.ELibrary.Data.Models
         public string CreatedBy { get; set; }
 
         public virtual Publisher Publisher { get; set; }
-        public virtual ICollection<Rental> Rental { get; set; }
+        public virtual ICollection<RentDetail> RentDetail { get; set; }
     }
 }

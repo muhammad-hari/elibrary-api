@@ -12,8 +12,18 @@ namespace Moonlay.ELibrary.Api
 {
     public class Program
     {
+        private static IConfiguration Configuration { get; set; }
+
         public static void Main(string[] args)
         {
+            var builder = new ConfigurationBuilder()
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("appsettings.json", true, true)
+                    .AddJsonFile($"appsettings.{Environment.MachineName}.json", optional: true)
+                    .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
+            
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -21,11 +31,8 @@ namespace Moonlay.ELibrary.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>()
-                    .UseConfiguration(new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json", true, true)
-                    .AddJsonFile($"appsettings.{Environment.MachineName}.json", optional: true)
-                    .AddEnvironmentVariables().Build());
+                    webBuilder.UseConfiguration(Configuration).
+                    UseStartup<Startup>();
                 });
     }
 }

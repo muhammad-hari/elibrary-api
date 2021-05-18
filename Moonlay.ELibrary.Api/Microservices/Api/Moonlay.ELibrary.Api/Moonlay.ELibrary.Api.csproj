@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\Moonlay.ELibrary.Application\Moonlay.ELibrary.Application.csproj" />
     <ProjectReference Include="..\..\Data\Moonlay.ELibrary.Data\Moonlay.ELibrary.Data.csproj" />
   </ItemGroup>
 

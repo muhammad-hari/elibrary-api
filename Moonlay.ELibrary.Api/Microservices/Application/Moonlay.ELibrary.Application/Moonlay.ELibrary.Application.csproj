@@ -8,4 +8,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Moonlay.ELibrary.Data\Moonlay.ELibrary.Data.csproj" />
+    <ProjectReference Include="..\..\Domain\Moonlay.ELibrary.Domain\Moonlay.ELibrary.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
