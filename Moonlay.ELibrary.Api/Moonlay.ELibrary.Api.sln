@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonlay.ELibrary.Api", "Microservices\Api\Moonlay.ELibrary.Api\Moonlay.ELibrary.Api.csproj", "{1D8F2F11-C026-4180-834C-D57A6C44A50D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{B1D7B8FD-FD0C-49EC-94B1-B6C273EB6A04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{FE4BB28F-EC26-4A81-A137-EDAACECE3932}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{B09830F3-0C6E-4582-8CD7-353444C1FD65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{3AFFDF59-0E1C-4149-AE83-53065AF65288}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F572346A-E057-43AB-B986-1BCE15EA0C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlay.ELibrary.Application", "Microservices\Application\Moonlay.ELibrary.Application\Moonlay.ELibrary.Application.csproj", "{23203AAC-59D4-4433-8D0D-33C912A64C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlay.ELibrary.Domain", "Microservices\Domain\Moonlay.ELibrary.Domain\Moonlay.ELibrary.Domain.csproj", "{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonlay.ELibrary.Data", "Microservices\Data\Moonlay.ELibrary.Data\Moonlay.ELibrary.Data.csproj", "{17424F76-4860-486A-A40A-FD28C0218961}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D8F2F11-C026-4180-834C-D57A6C44A50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8F2F11-C026-4180-834C-D57A6C44A50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8F2F11-C026-4180-834C-D57A6C44A50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8F2F11-C026-4180-834C-D57A6C44A50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23203AAC-59D4-4433-8D0D-33C912A64C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23203AAC-59D4-4433-8D0D-33C912A64C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23203AAC-59D4-4433-8D0D-33C912A64C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23203AAC-59D4-4433-8D0D-33C912A64C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17424F76-4860-486A-A40A-FD28C0218961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17424F76-4860-486A-A40A-FD28C0218961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17424F76-4860-486A-A40A-FD28C0218961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17424F76-4860-486A-A40A-FD28C0218961}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D8F2F11-C026-4180-834C-D57A6C44A50D} = {FE4BB28F-EC26-4A81-A137-EDAACECE3932}
+		{FE4BB28F-EC26-4A81-A137-EDAACECE3932} = {B1D7B8FD-FD0C-49EC-94B1-B6C273EB6A04}
+		{B09830F3-0C6E-4582-8CD7-353444C1FD65} = {B1D7B8FD-FD0C-49EC-94B1-B6C273EB6A04}
+		{3AFFDF59-0E1C-4149-AE83-53065AF65288} = {B1D7B8FD-FD0C-49EC-94B1-B6C273EB6A04}
+		{F572346A-E057-43AB-B986-1BCE15EA0C27} = {B1D7B8FD-FD0C-49EC-94B1-B6C273EB6A04}
+		{23203AAC-59D4-4433-8D0D-33C912A64C2E} = {B09830F3-0C6E-4582-8CD7-353444C1FD65}
+		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6} = {F572346A-E057-43AB-B986-1BCE15EA0C27}
+		{17424F76-4860-486A-A40A-FD28C0218961} = {3AFFDF59-0E1C-4149-AE83-53065AF65288}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF6377CF-4119-499C-B4AA-9F8FBB2688BE}
+	EndGlobalSection
+EndGlobal
