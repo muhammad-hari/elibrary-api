@@ -6,6 +6,7 @@ namespace Moonlay.ELibrary.Application.Models.Response
 {
     public class RentBookResponse
     {
+       public int InvoiceID { get; set; }
        public string CustomerName { get; set; }
        public string EmployeeName { get; set; }
        public List<RentalDto> Data { get; set; }

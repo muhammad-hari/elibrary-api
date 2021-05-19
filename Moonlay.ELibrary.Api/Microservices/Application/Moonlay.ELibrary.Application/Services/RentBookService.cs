@@ -45,6 +45,7 @@ namespace Moonlay.ELibrary.Application.Services
                 CreatedDate = request.CreatedDate,
             });
 
+
             foreach (var item in request.BookItems)
             {
                 await repository.AddRentalAsync(new RentDetail()
@@ -81,8 +82,11 @@ namespace Moonlay.ELibrary.Application.Services
                 });
 
             }
+
+
             return await Task.FromResult(new RentBookResponse()
             {
+               InvoiceID = invoiceID,
                EmployeeName = repository.GetEmployee(request.AdminID).FirstName,
                CustomerName = repository.GetCustomer(request.CustomerID).FirstName,
                TotalCost = request.BookItems.Sum(x => x.Cost),

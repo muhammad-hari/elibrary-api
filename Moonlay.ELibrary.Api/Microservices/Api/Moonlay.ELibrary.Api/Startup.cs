@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +37,10 @@ namespace Moonlay.ELibrary.Api
                 options.UseSqlServer(Configuration.GetConnectionString("Development"));
             });
 
+            services.AddMvc()
+               .AddJsonOptions(options => {
+                   options.JsonSerializerOptions.IgnoreNullValues = true;
+               });
 
 
             // Register the Swagger generator, defining 1 or more Swagger documents

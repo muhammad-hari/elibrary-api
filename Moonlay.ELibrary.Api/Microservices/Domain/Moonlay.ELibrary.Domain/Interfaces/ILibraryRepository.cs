@@ -1,4 +1,5 @@
 ﻿using Moonlay.ELibrary.Domain.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Moonlay.ELibrary.Domain.Interfaces
@@ -12,7 +13,7 @@ namespace Moonlay.ELibrary.Domain.Interfaces
         #endregion
 
         #region Customers
-
+        IEnumerable<Customer> GetCustomer();
         Customer GetCustomer(int id);
         void AddCustomer(Customer customer);
 
@@ -20,6 +21,7 @@ namespace Moonlay.ELibrary.Domain.Interfaces
 
         #region Books
 
+        IEnumerable<Book> GetBook();
         Book GetBook(int id);
 
         #endregion
@@ -35,6 +37,7 @@ namespace Moonlay.ELibrary.Domain.Interfaces
         #region Invoice 
 
         int CreateInvoice(Payment item);
+        List<dynamic> GetInvoice(int paymentID);
 
         #endregion
     }

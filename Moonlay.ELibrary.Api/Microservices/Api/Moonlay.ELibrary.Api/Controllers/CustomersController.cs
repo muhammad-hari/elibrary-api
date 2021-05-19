@@ -33,6 +33,14 @@ namespace Moonlay.ELibrary.Api.Controllers
 
         #endregion
 
+        [HttpGet]
+        public ActionResult Get()
+        {
+            var cust = repository.GetCustomer();
+            return Ok(cust);
+        }
+
+
         [HttpGet, Route("{id}")]
         public ActionResult Get(int id)
         {

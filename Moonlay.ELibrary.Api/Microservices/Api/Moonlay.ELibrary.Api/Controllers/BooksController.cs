@@ -6,26 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moonlay.ELibrary.Application.Interfaces;
 using Moonlay.ELibrary.Application.Models;
-using Moonlay.ELibrary.Application.Models.Request;
 using Moonlay.ELibrary.Domain.Interfaces;
 
 namespace Moonlay.ELibrary.Api.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class PaymentController : ControllerBase
+    public class BooksController : ControllerBase
     {
         #region Private Members
 
         private readonly IRentBookService bookService;
         private readonly ILibraryRepository repository;
-        private readonly ILogger<CustomersController> logger;
+        private readonly ILogger<BooksController> logger;
 
         #endregion
 
         #region Constructor
 
-        public PaymentController(ILogger<CustomersController> logger, IRentBookService bookService, ILibraryRepository repository)
+        public BooksController(ILogger<BooksController> logger, IRentBookService bookService, ILibraryRepository repository)
         {
             this.logger = logger;
             this.bookService = bookService;
@@ -34,20 +33,21 @@ namespace Moonlay.ELibrary.Api.Controllers
 
         #endregion
 
+        [HttpGet]
+        public ActionResult Get()
+        {
+            var book = repository.GetBook();
+            return Ok(book);
+        }
+
         [HttpGet, Route("{id}")]
         public ActionResult Get(int id)
         {
-            var invoice = repository.GetInvoice(id);
-            return Ok(invoice);
+            var book = repository.GetBook(id);
+            return Ok(book);
         }
 
-        [HttpPost]
-        public ActionResult Add([FromBody] RentBookRequest request)
-        {
-            var response = bookService.PaymentAsync(request);
-
-            return Ok(response.Result);
-        }
+       
 
 
     }

@@ -15,11 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{3AFFDF59-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F572346A-E057-43AB-B986-1BCE15EA0C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlay.ELibrary.Application", "Microservices\Application\Moonlay.ELibrary.Application\Moonlay.ELibrary.Application.csproj", "{23203AAC-59D4-4433-8D0D-33C912A64C2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonlay.ELibrary.Application", "Microservices\Application\Moonlay.ELibrary.Application\Moonlay.ELibrary.Application.csproj", "{23203AAC-59D4-4433-8D0D-33C912A64C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlay.ELibrary.Domain", "Microservices\Domain\Moonlay.ELibrary.Domain\Moonlay.ELibrary.Domain.csproj", "{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonlay.ELibrary.Domain", "Microservices\Domain\Moonlay.ELibrary.Domain\Moonlay.ELibrary.Domain.csproj", "{6BCB69DC-9267-4BCB-8160-599DB79E1AB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moonlay.ELibrary.Data", "Microservices\Data\Moonlay.ELibrary.Data\Moonlay.ELibrary.Data.csproj", "{17424F76-4860-486A-A40A-FD28C0218961}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{88DE2CB9-CA14-4801-9FAF-E1F913A5C567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moonlay.ELibrary.WebClient", "Presentation\Moonlay.ELibrary.WebClient\Moonlay.ELibrary.WebClient.csproj", "{CAE4A429-38E4-40BC-8D0C-7E03146A10D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{17424F76-4860-486A-A40A-FD28C0218961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17424F76-4860-486A-A40A-FD28C0218961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17424F76-4860-486A-A40A-FD28C0218961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAE4A429-38E4-40BC-8D0C-7E03146A10D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE4A429-38E4-40BC-8D0C-7E03146A10D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE4A429-38E4-40BC-8D0C-7E03146A10D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE4A429-38E4-40BC-8D0C-7E03146A10D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{23203AAC-59D4-4433-8D0D-33C912A64C2E} = {B09830F3-0C6E-4582-8CD7-353444C1FD65}
 		{6BCB69DC-9267-4BCB-8160-599DB79E1AB6} = {F572346A-E057-43AB-B986-1BCE15EA0C27}
 		{17424F76-4860-486A-A40A-FD28C0218961} = {3AFFDF59-0E1C-4149-AE83-53065AF65288}
+		{CAE4A429-38E4-40BC-8D0C-7E03146A10D3} = {88DE2CB9-CA14-4801-9FAF-E1F913A5C567}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CF6377CF-4119-499C-B4AA-9F8FBB2688BE}
